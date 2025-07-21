@@ -7,14 +7,17 @@ WORKDIR /app
 # Copia os arquivos de dependência para dentro do container
 COPY package*.json ./
 
-# Instala as dependências
-RUN npm install
+# Instala as dependências com segurança
+RUN npm install --omit=dev
 
-# Copia o resto dos arquivos para dentro do container
+# Copia os arquivos restantes
 COPY . .
+
+# Define a variável de ambiente (Render já define PORT automaticamente, mas garantimos aqui)
+ENV PORT=3000
 
 # Expõe a porta onde a aplicação vai responder
 EXPOSE 3000
 
 # Comando para iniciar o app
-CMD ["npm", "start"]
+CMD ["node", "index.js"]
