@@ -6,6 +6,8 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "@fullcalendar/daygrid": "^6.1.18",
+    "@fullcalendar/react": "^6.1.18",
     "axios": "^1.10.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
